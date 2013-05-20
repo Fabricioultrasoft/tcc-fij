@@ -1,0 +1,8 @@
+c:\users\robson\documents\visual studio 2012\Projects\AgenteTcc\AgenteTcc\bin\Debug\AgenteTcc.exe
+c:\users\robson\documents\visual studio 2012\Projects\AgenteTcc\AgenteTcc\bin\Debug\AgenteTcc.pdb
+c:\users\robson\documents\visual studio 2012\Projects\AgenteTcc\AgenteTcc\obj\Debug\AgenteTcc.csprojResolveAssemblyReference.cache
+c:\users\robson\documents\visual studio 2012\Projects\AgenteTcc\AgenteTcc\obj\Debug\AgenteTcc.Form1.resources
+c:\users\robson\documents\visual studio 2012\Projects\AgenteTcc\AgenteTcc\obj\Debug\AgenteTcc.Properties.Resources.resources
+c:\users\robson\documents\visual studio 2012\Projects\AgenteTcc\AgenteTcc\obj\Debug\AgenteTcc.csproj.GenerateResource.Cache
+c:\users\robson\documents\visual studio 2012\Projects\AgenteTcc\AgenteTcc\obj\Debug\AgenteTcc.exe
+c:\users\robson\documents\visual studio 2012\Projects\AgenteTcc\AgenteTcc\obj\Debug\AgenteTcc.pdb

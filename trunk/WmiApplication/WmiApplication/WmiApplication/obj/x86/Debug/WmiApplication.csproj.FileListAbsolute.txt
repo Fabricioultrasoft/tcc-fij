@@ -1,0 +1,6 @@
+c:\users\cvidal\documents\visual studio 2010\Projects\WmiApplication\WmiApplication\bin\Debug\WmiApplication.exe
+c:\users\cvidal\documents\visual studio 2010\Projects\WmiApplication\WmiApplication\bin\Debug\WmiApplication.pdb
+c:\users\cvidal\documents\visual studio 2010\Projects\WmiApplication\WmiApplication\obj\x86\Debug\WmiApplication.exe
+c:\users\cvidal\documents\visual studio 2010\Projects\WmiApplication\WmiApplication\obj\x86\Debug\WmiApplication.pdb
+D:\2013.1\Projeto TCC\WmiApplication\WmiApplication\WmiApplication\obj\x86\Debug\WmiApplication.exe
+D:\2013.1\Projeto TCC\WmiApplication\WmiApplication\WmiApplication\obj\x86\Debug\WmiApplication.pdb
