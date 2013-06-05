@@ -1,0 +1,12 @@
+c:\users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\FormInvisivel\bin\Release\FormInvisivel.exe
+c:\users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\FormInvisivel\bin\Release\FormInvisivel.pdb
+c:\users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\FormInvisivel\obj\x86\Release\FormInvisivel.Formulario.resources
+c:\users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\FormInvisivel\obj\x86\Release\FormInvisivel.Properties.Resources.resources
+c:\users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\FormInvisivel\obj\x86\Release\FormInvisivel.csproj.GenerateResource.Cache
+c:\users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\FormInvisivel\obj\x86\Release\FormInvisivel.exe
+c:\users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\FormInvisivel\obj\x86\Release\FormInvisivel.pdb
+C:\Users\cvidal\Documents\Visual Studio 2010\Projects\FormInvisivel\FormInvisivel\obj\x86\Release\FormInvisivel.csprojResolveAssemblyReference.cache
+C:\Users\cvidal\Documents\Visual Studio 2010\Projects\FormInvisivel\FormInvisivel\bin\Release\FormInvisivel.exe.manifest
+C:\Users\cvidal\Documents\Visual Studio 2010\Projects\FormInvisivel\FormInvisivel\bin\Release\FormInvisivel.application
+C:\Users\cvidal\Documents\Visual Studio 2010\Projects\FormInvisivel\FormInvisivel\obj\x86\Release\FormInvisivel.exe.manifest
+C:\Users\cvidal\Documents\Visual Studio 2010\Projects\FormInvisivel\FormInvisivel\obj\x86\Release\FormInvisivel.application

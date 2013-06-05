@@ -1,0 +1,7 @@
+C:\Users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\Instalador\obj\x86\Release\Instalador.FormInstalador.resources
+C:\Users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\Instalador\obj\x86\Release\Instalador.Properties.Resources.resources
+C:\Users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\Instalador\obj\x86\Release\Instalador.csproj.GenerateResource.Cache
+C:\Users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\Instalador\bin\Release\Instalador.exe
+C:\Users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\Instalador\bin\Release\Instalador.pdb
+C:\Users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\Instalador\obj\x86\Release\Instalador.exe
+C:\Users\cvidal\documents\visual studio 2010\Projects\FormInvisivel\Instalador\obj\x86\Release\Instalador.pdb
