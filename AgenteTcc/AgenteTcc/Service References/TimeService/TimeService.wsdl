@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.Nanonull.com/TimeService/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.Nanonull.com/TimeService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">A sample Time service</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.Nanonull.com/TimeService/">
+      <s:element name="getUTCTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="getUTCTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUTCTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOffesetUTCTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="hoursOffset" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOffesetUTCTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOffesetUTCTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getServerTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="getServerTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getServerTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getServerTimeZone">
+        <s:complexType />
+      </s:element>
+      <s:element name="getServerTimeZoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getServerTimeZoneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getServerCity">
+        <s:complexType />
+      </s:element>
+      <s:element name="getServerCityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getServerCityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTimeZoneTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="timezone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTimeZoneTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTimeZoneTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCityTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCityTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCityTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getUTCTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:getUTCTime" />
+  </wsdl:message>
+  <wsdl:message name="getUTCTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:getUTCTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOffesetUTCTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:getOffesetUTCTime" />
+  </wsdl:message>
+  <wsdl:message name="getOffesetUTCTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:getOffesetUTCTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getServerTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:getServerTime" />
+  </wsdl:message>
+  <wsdl:message name="getServerTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:getServerTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getServerTimeZoneSoapIn">
+    <wsdl:part name="parameters" element="tns:getServerTimeZone" />
+  </wsdl:message>
+  <wsdl:message name="getServerTimeZoneSoapOut">
+    <wsdl:part name="parameters" element="tns:getServerTimeZoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="getServerCitySoapIn">
+    <wsdl:part name="parameters" element="tns:getServerCity" />
+  </wsdl:message>
+  <wsdl:message name="getServerCitySoapOut">
+    <wsdl:part name="parameters" element="tns:getServerCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTimeZoneTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:getTimeZoneTime" />
+  </wsdl:message>
+  <wsdl:message name="getTimeZoneTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:getTimeZoneTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCityTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:getCityTime" />
+  </wsdl:message>
+  <wsdl:message name="getCityTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:getCityTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUTCTimeHttpGetIn" />
+  <wsdl:message name="getUTCTimeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getOffesetUTCTimeHttpGetIn">
+    <wsdl:part name="hoursOffset" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getOffesetUTCTimeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getServerTimeHttpGetIn" />
+  <wsdl:message name="getServerTimeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getServerTimeZoneHttpGetIn" />
+  <wsdl:message name="getServerTimeZoneHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getServerCityHttpGetIn" />
+  <wsdl:message name="getServerCityHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getTimeZoneTimeHttpGetIn">
+    <wsdl:part name="timezone" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTimeZoneTimeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCityTimeHttpGetIn">
+    <wsdl:part name="city" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCityTimeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getUTCTimeHttpPostIn" />
+  <wsdl:message name="getUTCTimeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getOffesetUTCTimeHttpPostIn">
+    <wsdl:part name="hoursOffset" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getOffesetUTCTimeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getServerTimeHttpPostIn" />
+  <wsdl:message name="getServerTimeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getServerTimeZoneHttpPostIn" />
+  <wsdl:message name="getServerTimeZoneHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getServerCityHttpPostIn" />
+  <wsdl:message name="getServerCityHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getTimeZoneTimeHttpPostIn">
+    <wsdl:part name="timezone" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getTimeZoneTimeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getCityTimeHttpPostIn">
+    <wsdl:part name="city" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getCityTimeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="TimeServiceSoap">
+    <wsdl:operation name="getUTCTime">
+      <wsdl:input message="tns:getUTCTimeSoapIn" />
+      <wsdl:output message="tns:getUTCTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOffesetUTCTime">
+      <wsdl:input message="tns:getOffesetUTCTimeSoapIn" />
+      <wsdl:output message="tns:getOffesetUTCTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <wsdl:input message="tns:getServerTimeSoapIn" />
+      <wsdl:output message="tns:getServerTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerTimeZone">
+      <wsdl:input message="tns:getServerTimeZoneSoapIn" />
+      <wsdl:output message="tns:getServerTimeZoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerCity">
+      <wsdl:input message="tns:getServerCitySoapIn" />
+      <wsdl:output message="tns:getServerCitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTimeZoneTime">
+      <wsdl:input message="tns:getTimeZoneTimeSoapIn" />
+      <wsdl:output message="tns:getTimeZoneTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCityTime">
+      <wsdl:input message="tns:getCityTimeSoapIn" />
+      <wsdl:output message="tns:getCityTimeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TimeServiceHttpGet">
+    <wsdl:operation name="getUTCTime">
+      <wsdl:input message="tns:getUTCTimeHttpGetIn" />
+      <wsdl:output message="tns:getUTCTimeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOffesetUTCTime">
+      <wsdl:input message="tns:getOffesetUTCTimeHttpGetIn" />
+      <wsdl:output message="tns:getOffesetUTCTimeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <wsdl:input message="tns:getServerTimeHttpGetIn" />
+      <wsdl:output message="tns:getServerTimeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerTimeZone">
+      <wsdl:input message="tns:getServerTimeZoneHttpGetIn" />
+      <wsdl:output message="tns:getServerTimeZoneHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerCity">
+      <wsdl:input message="tns:getServerCityHttpGetIn" />
+      <wsdl:output message="tns:getServerCityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTimeZoneTime">
+      <wsdl:input message="tns:getTimeZoneTimeHttpGetIn" />
+      <wsdl:output message="tns:getTimeZoneTimeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCityTime">
+      <wsdl:input message="tns:getCityTimeHttpGetIn" />
+      <wsdl:output message="tns:getCityTimeHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TimeServiceHttpPost">
+    <wsdl:operation name="getUTCTime">
+      <wsdl:input message="tns:getUTCTimeHttpPostIn" />
+      <wsdl:output message="tns:getUTCTimeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOffesetUTCTime">
+      <wsdl:input message="tns:getOffesetUTCTimeHttpPostIn" />
+      <wsdl:output message="tns:getOffesetUTCTimeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <wsdl:input message="tns:getServerTimeHttpPostIn" />
+      <wsdl:output message="tns:getServerTimeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerTimeZone">
+      <wsdl:input message="tns:getServerTimeZoneHttpPostIn" />
+      <wsdl:output message="tns:getServerTimeZoneHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerCity">
+      <wsdl:input message="tns:getServerCityHttpPostIn" />
+      <wsdl:output message="tns:getServerCityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTimeZoneTime">
+      <wsdl:input message="tns:getTimeZoneTimeHttpPostIn" />
+      <wsdl:output message="tns:getTimeZoneTimeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCityTime">
+      <wsdl:input message="tns:getCityTimeHttpPostIn" />
+      <wsdl:output message="tns:getCityTimeHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TimeServiceSoap" type="tns:TimeServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getUTCTime">
+      <soap:operation soapAction="http://www.Nanonull.com/TimeService/getUTCTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOffesetUTCTime">
+      <soap:operation soapAction="http://www.Nanonull.com/TimeService/getOffesetUTCTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <soap:operation soapAction="http://www.Nanonull.com/TimeService/getServerTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTimeZone">
+      <soap:operation soapAction="http://www.Nanonull.com/TimeService/getServerTimeZone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerCity">
+      <soap:operation soapAction="http://www.Nanonull.com/TimeService/getServerCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTimeZoneTime">
+      <soap:operation soapAction="http://www.Nanonull.com/TimeService/getTimeZoneTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCityTime">
+      <soap:operation soapAction="http://www.Nanonull.com/TimeService/getCityTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TimeServiceSoap12" type="tns:TimeServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getUTCTime">
+      <soap12:operation soapAction="http://www.Nanonull.com/TimeService/getUTCTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOffesetUTCTime">
+      <soap12:operation soapAction="http://www.Nanonull.com/TimeService/getOffesetUTCTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <soap12:operation soapAction="http://www.Nanonull.com/TimeService/getServerTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTimeZone">
+      <soap12:operation soapAction="http://www.Nanonull.com/TimeService/getServerTimeZone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerCity">
+      <soap12:operation soapAction="http://www.Nanonull.com/TimeService/getServerCity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTimeZoneTime">
+      <soap12:operation soapAction="http://www.Nanonull.com/TimeService/getTimeZoneTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCityTime">
+      <soap12:operation soapAction="http://www.Nanonull.com/TimeService/getCityTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TimeServiceHttpGet" type="tns:TimeServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getUTCTime">
+      <http:operation location="/getUTCTime" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOffesetUTCTime">
+      <http:operation location="/getOffesetUTCTime" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <http:operation location="/getServerTime" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTimeZone">
+      <http:operation location="/getServerTimeZone" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerCity">
+      <http:operation location="/getServerCity" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTimeZoneTime">
+      <http:operation location="/getTimeZoneTime" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCityTime">
+      <http:operation location="/getCityTime" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TimeServiceHttpPost" type="tns:TimeServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getUTCTime">
+      <http:operation location="/getUTCTime" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOffesetUTCTime">
+      <http:operation location="/getOffesetUTCTime" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <http:operation location="/getServerTime" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTimeZone">
+      <http:operation location="/getServerTimeZone" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerCity">
+      <http:operation location="/getServerCity" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTimeZoneTime">
+      <http:operation location="/getTimeZoneTime" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCityTime">
+      <http:operation location="/getCityTime" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TimeService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">A sample Time service</wsdl:documentation>
+    <wsdl:port name="TimeServiceSoap" binding="tns:TimeServiceSoap">
+      <soap:address location="http://www.nanonull.com/TimeService/TimeService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TimeServiceSoap12" binding="tns:TimeServiceSoap12">
+      <soap12:address location="http://www.nanonull.com/TimeService/TimeService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TimeServiceHttpGet" binding="tns:TimeServiceHttpGet">
+      <http:address location="http://www.nanonull.com/TimeService/TimeService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TimeServiceHttpPost" binding="tns:TimeServiceHttpPost">
+      <http:address location="http://www.nanonull.com/TimeService/TimeService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
