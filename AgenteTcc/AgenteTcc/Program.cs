@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AgenteTcc
@@ -18,19 +20,35 @@ namespace AgenteTcc
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           
+
             SystemEvents.SessionEnding += SessionEndingEvtHandler;
 
 
             if (Internet.IsConnected())
-                Horario.UpdateWindowsClockFromInternet();
+            {
+                try
+                {
+                    Horario.UpdateWindowsClockFromInternet();
+                }
+                catch
+                {
+                    new AjusteHorario().ShowDialog();
+                }
+            }
             else
                 new AjusteHorario().ShowDialog();
 
             new Monitorador();
 
-            new Questionario().ShowDialog();
-            Application.Run();
+            CallMethodAsync();
+
+            Application.Run();  
+        }
+
+        private static void CallMethodAsync()
+        {
+            Task.Factory.StartNew(() => Transferencia.IniciarTransferencia());
+
         }
         protected static void SessionEndingEvtHandler(object sender, SessionEndingEventArgs e)
         {

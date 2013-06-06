@@ -157,11 +157,44 @@ namespace AgenteTcc
         }
         private void CriarArquivoDestino()
         {
-            string caminho = RegistryMemore.DestinoLog;
-            if (!File.Exists(caminho))
+            while (true)
             {
-                File.Create(caminho);
-                isNewFile = true;
+                try
+                {
+                    string caminho = RegistryMemore.DestinoLog;
+                    if (!File.Exists(caminho))
+                    {
+                        File.Create(caminho);
+                        isNewFile = true;
+                    }
+                    break;
+                }
+                catch (Exception)
+                {
+
+                    continue;
+                }
+                
+            }
+
+        }
+
+        public void Deletar()
+        {
+            while (true)
+            {
+                try
+                {
+                    if (File.Exists(RegistryMemore.DestinoLog))
+                        File.Delete(RegistryMemore.DestinoLog);
+                    break;
+                }
+                catch (Exception)
+                {
+                    continue;
+                  
+                }
+            
             }
 
         }
@@ -175,14 +208,16 @@ namespace AgenteTcc
             {
                 try
                 {
-                    System.IO.TextWriter arquivo = System.IO.File.AppendText(RegistryMemore.DestinoLog);
+                    StreamWriter arquivo = new StreamWriter(RegistryMemore.DestinoLog, true);
+                   // System.IO.TextWriter arquivo = System.IO.File.AppendText(RegistryMemore.DestinoLog);
                     arquivo.Write(GetModeloArquivo());
+                    arquivo.Flush();
                     arquivo.Close();
                     break;
                 }
                 catch
                 {
-
+                    continue;
                 }
             }
         }

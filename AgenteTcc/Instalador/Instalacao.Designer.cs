@@ -103,7 +103,7 @@
             this.txtTamanhoLog.Name = "txtTamanhoLog";
             this.txtTamanhoLog.Size = new System.Drawing.Size(41, 20);
             this.txtTamanhoLog.TabIndex = 3;
-            this.txtTamanhoLog.Text = "300";
+            this.txtTamanhoLog.Text = "10";
             // 
             // label3
             // 
@@ -203,9 +203,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(6, 80);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.Size = new System.Drawing.Size(32, 13);
             this.label9.TabIndex = 14;
-            this.label9.Text = "SMTP";
+            this.label9.Text = "Porta";
             // 
             // txtServidorEmail
             // 
@@ -255,6 +255,7 @@
             // 
             this.txtSenhaEmail.Location = new System.Drawing.Point(6, 148);
             this.txtSenhaEmail.Name = "txtSenhaEmail";
+            this.txtSenhaEmail.PasswordChar = '*';
             this.txtSenhaEmail.Size = new System.Drawing.Size(220, 20);
             this.txtSenhaEmail.TabIndex = 23;
             // 
@@ -357,7 +358,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(9, 536);
+            this.checkBox2.Location = new System.Drawing.Point(10, 499);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(154, 17);
             this.checkBox2.TabIndex = 29;
@@ -368,7 +369,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(360, 670);
+            this.button1.Location = new System.Drawing.Point(391, 551);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 30);
             this.button1.TabIndex = 30;
@@ -378,7 +379,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 641);
+            this.progressBar1.Location = new System.Drawing.Point(10, 522);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(889, 23);
             this.progressBar1.TabIndex = 31;
@@ -396,7 +397,7 @@
             this.listBox1.Location = new System.Drawing.Point(10, 331);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox1.Size = new System.Drawing.Size(349, 199);
+            this.listBox1.Size = new System.Drawing.Size(349, 147);
             this.listBox1.TabIndex = 32;
             // 
             // label16
@@ -438,7 +439,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 709);
+            this.ClientSize = new System.Drawing.Size(921, 590);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.textBox1);
