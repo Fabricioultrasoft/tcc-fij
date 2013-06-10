@@ -19,31 +19,30 @@ namespace Common
             }
         }
 
-      
-        public static int TamanhoLog
+        public static int QuantidadeSessoesMaxima
         {
             get
             {
-
-                return Convert.ToInt32(rkApp.GetValue("TamanhoLog"));
+                return Convert.ToInt32(rkApp.GetValue("QuantidadeSessoesMaxima"));
             }
             set
             {
-                rkApp.SetValue("TamanhoLog", value);
+                rkApp.SetValue("QuantidadeSessoesMaxima", value);
             }
         }
-        public static int IntervaloEnvio
+        public static int QuantidadeSessoesAtual
         {
             get
             {
-
-                return Convert.ToInt32(rkApp.GetValue("IntervaloEnvio"));
+                return Convert.ToInt32(rkApp.GetValue("QuantidadeSessoesAtual"));
             }
             set
             {
-                rkApp.SetValue("IntervaloEnvio", value);
+                rkApp.SetValue("QuantidadeSessoesAtual", value);
             }
         }
+
+
         public static string NumeroSerie
         {
             get

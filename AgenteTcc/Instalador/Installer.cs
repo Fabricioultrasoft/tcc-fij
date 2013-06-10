@@ -15,7 +15,7 @@ namespace Instalador
 
 
         public static int TamanhoLog { get; set; }
-        public static int IntervaloEnvio { get; set; }
+        public static int QuantidadeSessoes { get; set; }
         public static string NumeroSerie { get; set; }
         public static string DestinoLog { get; set; }
         public static string EmailDestinatario { get; set; }
@@ -34,7 +34,6 @@ namespace Instalador
 
         public static void Install()
         {
-
             CopyFile();
             ProgressBarInstalacao.PerformStep();
             SetRegistryValues();
@@ -69,11 +68,13 @@ namespace Instalador
 
             RegistryMemore.CreateSubKey();
 
-            RegistryMemore.TamanhoLog = TamanhoLog;
+            ProgressBarInstalacao.PerformStep();
+
+            RegistryMemore.QuantidadeSessoesMaxima = QuantidadeSessoes;
 
             ProgressBarInstalacao.PerformStep();
 
-            RegistryMemore.IntervaloEnvio = IntervaloEnvio;
+            RegistryMemore.QuantidadeSessoesAtual = 0;
 
             ProgressBarInstalacao.PerformStep();
 

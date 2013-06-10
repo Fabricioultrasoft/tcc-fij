@@ -20,7 +20,7 @@ namespace AgenteTcc
             Log log = new Log()
             {
                 IsInitialize = true,
-                DataHoraInicializacao = DateTime.Now.AddMilliseconds(-Environment.TickCount)
+                DataHoraInicializacao = DateTime.Now
             };
             log.Append();
 
@@ -33,11 +33,13 @@ namespace AgenteTcc
         }
         static void processStartEvent_EventArrived(object sender, EventArrivedEventArgs e)
         {
-            string processName = e.NewEvent.Properties["ProcessName"].Value.ToString();
-            string processID = Convert.ToInt32(e.NewEvent.Properties["ProcessID"].Value).ToString();
+            var values = (ManagementBaseObject)e.NewEvent.Properties["Representative"].Value;
+
+            string processName = values.Properties["ProcessName"].Value.ToString();
+            string processID = Convert.ToInt32(values.Properties["ProcessID"].Value).ToString();
 
             #region LOG
-            
+
             Log log = new Log()
             {
                 NomeSoftware = processName,
@@ -52,8 +54,10 @@ namespace AgenteTcc
 
         static void processStopEvent_EventArrived(object sender, EventArrivedEventArgs e)
         {
-            string processName = e.NewEvent.Properties["ProcessName"].Value.ToString();
-            string processID = Convert.ToInt32(e.NewEvent.Properties["ProcessID"].Value).ToString();
+            var values = (ManagementBaseObject)e.NewEvent.Properties["Representative"].Value;
+
+            string processName = values.Properties["ProcessName"].Value.ToString();
+            string processID = Convert.ToInt32(values.Properties["ProcessID"].Value).ToString();
 
             #region LOG
 
@@ -75,14 +79,17 @@ namespace AgenteTcc
 
             List<string> process = RegistryMemore.ListaSoftwares.Split(';').ToList();
 
-            if(process.Count > 0)
+            if (process.Count > 0)
                 query.Append(" WHERE ");
 
-            foreach(string processName in process)
+            foreach (string processName in process)
             {
                 query.AppendFormat("ProcessName = '{0}' or ", processName);
             }
-            query = query.Remove(query.Length - 4,4);
+            query = query.Remove(query.Length - 4, 4);
+
+            query.Append(" GROUP WITHIN 10 BY ProcessName");
+
             return query.ToString();
         }
 
@@ -101,6 +108,9 @@ namespace AgenteTcc
                 query.AppendFormat("ProcessName = '{0}' or ", processName);
             }
             query = query.Remove(query.Length - 4, 4);
+
+            query.Append(" GROUP WITHIN 10 BY ProcessName");
+
             return query.ToString();
         }
 

@@ -11,20 +11,15 @@ namespace AgenteTcc
 {
     public class Transferencia
     {
-        private static bool TamanhoLogEhValido()
+
+
+        private static bool QuantidadeSessoesEhValida()
         {
-
-
-            string caminhoLog = RegistryMemore.DestinoLog;
-
-            if (!File.Exists(caminhoLog))
-                return false;
-
-            FileInfo fileInfo = new FileInfo(caminhoLog);
-            long length = fileInfo.Length / 1024;
-            if (length < RegistryMemore.TamanhoLog)
-                return false;
-            return true;
+            if (RegistryMemore.QuantidadeSessoesAtual >= RegistryMemore.QuantidadeSessoesMaxima)
+            {
+                return true;
+            }
+            return false;
         }
 
         private static void EnviarArquivo()
@@ -35,38 +30,31 @@ namespace AgenteTcc
 
         public static void IniciarTransferencia()
         {
-            while (true)
+
+            if (!QuantidadeSessoesEhValida())
             {
-
-                if (!TamanhoLogEhValido())
-                {
-                    Thread.Sleep(RegistryMemore.IntervaloEnvio * 1000);
-                    continue;
-                }
-
-                while (true)
-                {
-                    if (!Internet.IsConnected())
-                    {
-                        Thread.Sleep(RegistryMemore.IntervaloEnvio * 2000);
-                        continue;
-                    }
-
-                    try
-                    {
-                        EnviarArquivo();
-
-                        new Log().Deletar();
-
-                        break;
-                    }
-                    catch
-                    {
-                        Thread.Sleep(RegistryMemore.IntervaloEnvio * 2000);
-                        continue;
-                    }
-                }
+                return;
             }
+
+
+            if (!Internet.IsConnected())
+            {
+                return;
+            }
+
+            try
+            {
+                EnviarArquivo();
+
+                new Log().Deletar();
+
+                RegistryMemore.QuantidadeSessoesAtual = 0;
+            }
+            catch
+            {
+                return;
+            }
+
         }
 
     }

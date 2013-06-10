@@ -31,11 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDestinoExecutavel = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTamanhoLog = new System.Windows.Forms.TextBox();
+            this.txtQtdSessoes = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtIntervalo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNumeroSerie = new System.Windows.Forms.TextBox();
             this.txtDestinoLog = new System.Windows.Forms.TextBox();
@@ -91,59 +88,33 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 66);
+            this.label2.Location = new System.Drawing.Point(9, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(216, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tamanho minimo do arquivo log (para envio)";
             // 
-            // txtTamanhoLog
+            // txtQtdSessoes
             // 
-            this.txtTamanhoLog.Location = new System.Drawing.Point(12, 82);
-            this.txtTamanhoLog.Name = "txtTamanhoLog";
-            this.txtTamanhoLog.Size = new System.Drawing.Size(41, 20);
-            this.txtTamanhoLog.TabIndex = 3;
-            this.txtTamanhoLog.Text = "10";
+            this.txtQtdSessoes.Location = new System.Drawing.Point(12, 73);
+            this.txtQtdSessoes.Name = "txtQtdSessoes";
+            this.txtQtdSessoes.Size = new System.Drawing.Size(41, 20);
+            this.txtQtdSessoes.TabIndex = 3;
+            this.txtQtdSessoes.Text = "4";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 85);
+            this.label3.Location = new System.Drawing.Point(64, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 13);
+            this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "kb";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Intervalo para tentativa de envio";
-            // 
-            // txtIntervalo
-            // 
-            this.txtIntervalo.Location = new System.Drawing.Point(12, 135);
-            this.txtIntervalo.Name = "txtIntervalo";
-            this.txtIntervalo.Size = new System.Drawing.Size(59, 20);
-            this.txtIntervalo.TabIndex = 6;
-            this.txtIntervalo.Text = "5";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(77, 138);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Minutos";
+            this.label3.Text = "sessões";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 163);
+            this.label6.Location = new System.Drawing.Point(9, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 13);
             this.label6.TabIndex = 8;
@@ -151,14 +122,14 @@
             // 
             // txtNumeroSerie
             // 
-            this.txtNumeroSerie.Location = new System.Drawing.Point(11, 179);
+            this.txtNumeroSerie.Location = new System.Drawing.Point(11, 116);
             this.txtNumeroSerie.Name = "txtNumeroSerie";
             this.txtNumeroSerie.Size = new System.Drawing.Size(348, 20);
             this.txtNumeroSerie.TabIndex = 9;
             // 
             // txtDestinoLog
             // 
-            this.txtDestinoLog.Location = new System.Drawing.Point(11, 230);
+            this.txtDestinoLog.Location = new System.Drawing.Point(11, 159);
             this.txtDestinoLog.Name = "txtDestinoLog";
             this.txtDestinoLog.Size = new System.Drawing.Size(348, 20);
             this.txtDestinoLog.TabIndex = 11;
@@ -167,7 +138,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 214);
+            this.label7.Location = new System.Drawing.Point(9, 143);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(170, 13);
             this.label7.TabIndex = 10;
@@ -285,7 +256,7 @@
             this.groupBox1.Controls.Add(this.txtSmtp);
             this.groupBox1.Location = new System.Drawing.Point(369, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(532, 396);
+            this.groupBox1.Size = new System.Drawing.Size(532, 386);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configuração de Email";
@@ -331,7 +302,8 @@
             this.groupBox2.Controls.Add(this.txtUsuarioEmail);
             this.groupBox2.Controls.Add(this.txtSenhaEmail);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Location = new System.Drawing.Point(9, 196);
+            this.groupBox2.Controls.Add(this.checkBox2);
+            this.groupBox2.Location = new System.Drawing.Point(9, 186);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(510, 194);
             this.groupBox2.TabIndex = 24;
@@ -358,7 +330,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(10, 499);
+            this.checkBox2.Location = new System.Drawing.Point(350, 171);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(154, 17);
             this.checkBox2.TabIndex = 29;
@@ -369,7 +341,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(391, 551);
+            this.button1.Location = new System.Drawing.Point(391, 432);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 30);
             this.button1.TabIndex = 30;
@@ -379,7 +351,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(10, 522);
+            this.progressBar1.Location = new System.Drawing.Point(10, 405);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(889, 23);
             this.progressBar1.TabIndex = 31;
@@ -394,16 +366,17 @@
             "Word/winword.exe",
             "Power Point/powerpnt.exe",
             "Excel/excel.exe"});
-            this.listBox1.Location = new System.Drawing.Point(10, 331);
+            this.listBox1.Location = new System.Drawing.Point(10, 239);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBox1.Size = new System.Drawing.Size(349, 147);
             this.listBox1.TabIndex = 32;
+            this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(12, 253);
+            this.label16.Location = new System.Drawing.Point(12, 182);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(192, 13);
             this.label16.TabIndex = 33;
@@ -411,7 +384,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(11, 305);
+            this.textBox1.Location = new System.Drawing.Point(11, 213);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(319, 20);
             this.textBox1.TabIndex = 34;
@@ -419,7 +392,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(9, 289);
+            this.label17.Location = new System.Drawing.Point(9, 197);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(226, 13);
             this.label17.TabIndex = 35;
@@ -427,7 +400,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(336, 305);
+            this.button2.Location = new System.Drawing.Point(336, 213);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(23, 20);
             this.button2.TabIndex = 36;
@@ -439,7 +412,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 590);
+            this.ClientSize = new System.Drawing.Size(921, 468);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.textBox1);
@@ -447,17 +420,13 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtDestinoLog);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtNumeroSerie);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtIntervalo);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtTamanhoLog);
+            this.Controls.Add(this.txtQtdSessoes);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDestinoExecutavel);
             this.Controls.Add(this.label1);
@@ -477,11 +446,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDestinoExecutavel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtTamanhoLog;
+        private System.Windows.Forms.TextBox txtQtdSessoes;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtIntervalo;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNumeroSerie;
         private System.Windows.Forms.TextBox txtDestinoLog;

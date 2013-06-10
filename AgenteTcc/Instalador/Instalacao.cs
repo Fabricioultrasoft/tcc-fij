@@ -21,12 +21,13 @@ namespace Instalador
         {
             try
             {
+                ValidarCampos();
+
                 Installer.TargetPath = txtDestinoExecutavel.Text;
-                Installer.TamanhoLog = Convert.ToInt32(txtTamanhoLog.Text);
-                Installer.IntervaloEnvio = Convert.ToInt32(txtIntervalo.Text);
+               
+                Installer.QuantidadeSessoes = Convert.ToInt32(txtQtdSessoes.Text);
                 Installer.NumeroSerie = txtNumeroSerie.Text;
                 Installer.DestinoLog = txtDestinoLog.Text;
-
                 Installer.EmailDestinatario = txtEmailDestinatario.Text;
                 Installer.EmailRemetente = txtEmailRemetente.Text;
                 Installer.AssuntoEmail = txtAssuntoEmail.Text;
@@ -60,10 +61,17 @@ namespace Instalador
             catch (Exception er)
             {
 
-                MessageBox.Show(string.Format("Não foi possivel concluir a instação!\nErro:", er.Message));
+                MessageBox.Show(string.Format("Não foi possivel concluir a instação!\nErro: {0}", er.Message));
             }
 
 
+        }
+
+        private void ValidarCampos()
+        {
+            if (listBox1.SelectedItems.Count == 0)
+               throw new Exception("É necessário selecionar no mínimo um software na lista");
+            
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -74,6 +82,12 @@ namespace Instalador
         private void button2_Click(object sender, EventArgs e)
         {
             listBox1.Items.Add(textBox1.Text);
+        }
+
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
         }
     }
 }
