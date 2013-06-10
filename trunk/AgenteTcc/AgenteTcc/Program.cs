@@ -1,4 +1,5 @@
 ﻿using Agente;
+using Common;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -21,35 +22,36 @@ namespace AgenteTcc
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            SystemEvents.SessionEnding += SessionEndingEvtHandler;
+            new Questionario().ShowDialog();
+
+            //SystemEvents.SessionEnding += SessionEndingEvtHandler;
 
 
-            if (Internet.IsConnected())
-            {
-                try
-                {
-                    Horario.UpdateWindowsClockFromInternet();
-                }
-                catch
-                {
-                    new AjusteHorario().ShowDialog();
-                }
-            }
-            else
-                new AjusteHorario().ShowDialog();
+            //Transferencia.IniciarTransferencia();
 
-            new Monitorador();
+            //RegistryMemore.QuantidadeSessoesAtual += 1;
 
-            CallMethodAsync();
+            //if (Internet.IsConnected())
+            //{
+            //    try
+            //    {
+            //        Horario.UpdateWindowsClockFromInternet();
+            //    }
+            //    catch
+            //    {
+            //        new AjusteHorario().ShowDialog();
+            //    }
+            //}
+            //else
+            //    new AjusteHorario().ShowDialog();
 
-            Application.Run();  
+
+            //new Monitorador();
+            Application.Run();
         }
 
-        private static void CallMethodAsync()
-        {
-            Task.Factory.StartNew(() => Transferencia.IniciarTransferencia());
 
-        }
+
         protected static void SessionEndingEvtHandler(object sender, SessionEndingEventArgs e)
         {
 

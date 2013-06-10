@@ -36,16 +36,6 @@ namespace AgenteTcc
             }
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAvancar_Click(object sender, EventArgs e)
         {
             if (tabControl1.SelectedIndex == 1)
@@ -84,6 +74,15 @@ namespace AgenteTcc
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ValidarQuestoes();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(string.Format("Não foi possivel concluir a instação!\nErro: {0}", er.Message));
+            }
+
             Log log = new Log()
             {
                 IsShutdown = true,
@@ -139,5 +138,93 @@ namespace AgenteTcc
             log.Append();
 
         }
+
+  
+
+        private void ValidarQuestoes()
+        {
+            if (GetAll(panelQuestao1, typeof(CheckBox)).Count() == 0)
+            {
+                throw new Exception("É necessário preencher a questão 1");
+            }
+            if (GetAll(panelQuestao2, typeof(CheckBox)).Count() == 0)
+            {
+                throw new Exception("É necessário preencher a questão 2");
+            }
+            if (GetAll(panelQuestao3, typeof(CheckBox)).Count() == 0)
+            {
+                throw new Exception("É necessário preencher a questão 3");
+            }
+            if (GetAll(panelQuestao4, typeof(CheckBox)).Count() == 0)
+            {
+                throw new Exception("É necessário preencher a questão 4");
+            }
+            if (GetAll(panelQuestao5, typeof(CheckBox)).Count() == 0)
+            {
+                throw new Exception("É necessário preencher a questão 5");
+            }
+
+            if(string.IsNullOrEmpty((string)cbxConseguiuConcluir.SelectedItem))
+                throw new Exception("É necessário preencher a questão 6");
+
+            if (string.IsNullOrEmpty((string)cbxDuvidasUtilizacao.SelectedItem))
+                throw new Exception("É necessário preencher a questão 7");
+
+        }
+
+        public IEnumerable<CheckBox> GetAll(Control control, Type type)
+        {
+            var controls = control.Controls.Cast<CheckBox>();
+
+            return controls.SelectMany(ctrl => GetAll(ctrl, type))
+                                      .Concat(controls)
+                                      .Where(c => c.GetType() == type && c.Checked);
+        }
+
+        private void tabControl1_TabIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                btnVoltar.Hide();
+                btnAvancar.Show();
+            }
+            if (tabControl1.SelectedIndex == 1)
+            {
+                btnVoltar.Show();
+                btnAvancar.Show();
+                
+            }
+            if (tabControl1.SelectedIndex == 2)
+            {
+                btnVoltar.Show();
+                btnAvancar.Hide();
+
+            }
+
+          
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                btnVoltar.Hide();
+                btnAvancar.Show();
+            }
+            if (tabControl1.SelectedIndex == 1)
+            {
+                btnVoltar.Show();
+                btnAvancar.Show();
+
+            }
+            if (tabControl1.SelectedIndex == 2)
+            {
+                btnVoltar.Show();
+                btnAvancar.Hide();
+
+            }
+        }
+
+
     }
 }

@@ -150,10 +150,10 @@ namespace AgenteTcc
 
         private void CriarPastaDestino()
         {
-            string caminho = string.Join("\\",RegistryMemore.DestinoLog.Split('\\').Take(RegistryMemore.DestinoLog.Split('\\').Count() - 1));
+            string caminho = string.Join("\\", RegistryMemore.DestinoLog.Split('\\').Take(RegistryMemore.DestinoLog.Split('\\').Count() - 1));
             if (!Directory.Exists(caminho))
                 Directory.CreateDirectory(caminho);
-          
+
         }
         private void CriarArquivoDestino()
         {
@@ -174,28 +174,17 @@ namespace AgenteTcc
 
                     continue;
                 }
-                
+
             }
 
         }
 
         public void Deletar()
         {
-            while (true)
-            {
-                try
-                {
-                    if (File.Exists(RegistryMemore.DestinoLog))
-                        File.Delete(RegistryMemore.DestinoLog);
-                    break;
-                }
-                catch (Exception)
-                {
-                    continue;
-                  
-                }
-            
-            }
+
+            if (File.Exists(RegistryMemore.DestinoLog))
+                File.Delete(RegistryMemore.DestinoLog);
+
 
         }
 
@@ -204,24 +193,22 @@ namespace AgenteTcc
             CriarPastaDestino();
             CriarArquivoDestino();
 
-            while (true)
+            try
             {
-                try
-                {
-                    StreamWriter arquivo = new StreamWriter(RegistryMemore.DestinoLog, true);
-                   // System.IO.TextWriter arquivo = System.IO.File.AppendText(RegistryMemore.DestinoLog);
-                    arquivo.Write(GetModeloArquivo());
-                    arquivo.Flush();
-                    arquivo.Close();
-                    break;
-                }
-                catch
-                {
-                    continue;
-                }
+                StreamWriter arquivo = new StreamWriter(RegistryMemore.DestinoLog, true);
+                // System.IO.TextWriter arquivo = System.IO.File.AppendText(RegistryMemore.DestinoLog);
+                arquivo.Write(GetModeloArquivo());
+                arquivo.Flush();
+                arquivo.Close();
+
             }
+            catch
+            {
+                return;
+            }
+
         }
-       
+
         private string GetModeloArquivo()
         {
             StringBuilder sb = new StringBuilder();
@@ -237,23 +224,23 @@ namespace AgenteTcc
             }
             if (isSoftwareInitialize)
             {
-                sb.AppendLine(string.Format("{0} # A # {1}#{2}", nomeSoftware, 
-                                                                 dataHoraInicializacaoSoftware.ToShortDateString(), 
+                sb.AppendLine(string.Format("{0} # A # {1}#{2}", nomeSoftware,
+                                                                 dataHoraInicializacaoSoftware.ToShortDateString(),
                                                                  dataHoraInicializacaoSoftware.ToLongTimeString())
                                                                  );
             }
             if (isSoftwareClose)
             {
-                sb.AppendLine(string.Format("{0} # F # {1}#{2}", nomeSoftware, 
+                sb.AppendLine(string.Format("{0} # F # {1}#{2}", nomeSoftware,
                                                                  dataHoraFinalizacaoSoftware.ToShortDateString(),
                                                                  dataHoraFinalizacaoSoftware.ToLongTimeString())
                                                                  );
             }
             if (isShutdown)
             {
-                sb.AppendFormat("E # {0}#{1}", dataHoraEncerramento.ToShortDateString(), dataHoraEncerramento.ToShortTimeString());
+                sb.AppendLine(string.Format("E # {0}#{1}", dataHoraEncerramento.ToShortDateString(), dataHoraEncerramento.ToShortTimeString()));
                 //Questionario
-                sb.AppendFormat("#{0}#{1}#{2}#{3}#{4}#{5}#{6}#{7}",respostaPergunta1,
+                sb.AppendLine(string.Format("#{0}#{1}#{2}#{3}#{4}#{5}#{6}#{7}", respostaPergunta1,
                                                                respostaPergunta2,
                                                                respostaPergunta3,
                                                                respostaPergunta4,
@@ -261,7 +248,7 @@ namespace AgenteTcc
                                                                respostaPergunta6,
                                                                respostaPergunta7,
                                                                respostaPergunta8
-                                                               );
+                                                               ));
             }
 
             return sb.ToString();
