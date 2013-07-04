@@ -29,7 +29,7 @@ namespace Instalador
         public static string CorpoEmail { get; set; }
         public static string ListaSoftwares { get; set; }
 
-        public static ProgressBar ProgressBarInstalacao {get;set;}
+        public static ProgressBar ProgressBarInstalacao { get; set; }
 
 
         public static void Install()
@@ -37,30 +37,49 @@ namespace Instalador
             CopyFile();
             ProgressBarInstalacao.PerformStep();
             SetRegistryValues();
+            SetOnStartup();
+        }
+
+        private static void SetOnStartup()
+        {
+            Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            RegistryKey rgk = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            rgk.SetValue("Agente", Path.Combine(TargetPath,"Agente.exe"));
         }
         private static void CopyFile()
         {
             var arraySourcePath = System.Reflection.Assembly.GetExecutingAssembly().Location.Split('\\');
 
             string sourcePath = string.Join("\\", arraySourcePath.Take(arraySourcePath.Count() - 1).ToArray());
-            sourcePath = string.Format("{0}\\Agente.exe", sourcePath);
 
-            string targetPath = String.Format("{0}\\{1}", TargetPath, sourcePath.Split('\\').Last());
+            List<string> files = Directory.GetFiles(sourcePath).Where(f => !f.Contains("Instalador.")).ToList<string>();
 
-            try
+
+
+           
+
+            foreach (string file in files)
             {
-                if(!Directory.Exists(TargetPath))
-                    Directory.CreateDirectory(TargetPath);
-                if (File.Exists(targetPath))
-                    File.Delete(targetPath);
 
-               System.IO.File.Copy(sourcePath, targetPath, true);
+                try
+                {
+                    string fileTemp = file.Split('\\').Last();
+                    string targetPath = String.Format("{0}\\{1}", TargetPath, fileTemp);
+                    
+                    if (!Directory.Exists(TargetPath))
+                        Directory.CreateDirectory(TargetPath);
+                    if (File.Exists(targetPath))
+                        File.Delete(targetPath);
+
+                    System.IO.File.Copy(string.Format("{0}\\{1}", sourcePath, fileTemp), targetPath, true);
+                }
+                catch
+                {
+                    // Console.WriteLine("Double copy is not allowed, which was not expected.");
+                }
             }
 
-            catch
-            {
-                // Console.WriteLine("Double copy is not allowed, which was not expected.");
-            }
+
         }
 
         private static void SetRegistryValues()
@@ -128,6 +147,6 @@ namespace Instalador
         }
 
 
-      
+
     }
 }

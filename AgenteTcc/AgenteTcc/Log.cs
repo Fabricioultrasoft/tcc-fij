@@ -157,24 +157,13 @@ namespace AgenteTcc
         }
         private void CriarArquivoDestino()
         {
-            while (true)
+
+            string caminho = RegistryMemore.DestinoLog;
+            if (!File.Exists(caminho))
             {
-                try
-                {
-                    string caminho = RegistryMemore.DestinoLog;
-                    if (!File.Exists(caminho))
-                    {
-                        File.Create(caminho);
-                        isNewFile = true;
-                    }
-                    break;
-                }
-                catch (Exception)
-                {
-
-                    continue;
-                }
-
+                File.Create(caminho);
+                File.OpenWrite(caminho);
+                isNewFile = true;
             }
 
         }
@@ -191,7 +180,7 @@ namespace AgenteTcc
         public void Append()
         {
             CriarPastaDestino();
-            CriarArquivoDestino();
+            //CriarArquivoDestino();
 
             try
             {
@@ -200,6 +189,7 @@ namespace AgenteTcc
                 arquivo.Write(GetModeloArquivo());
                 arquivo.Flush();
                 arquivo.Close();
+
 
             }
             catch
@@ -240,7 +230,7 @@ namespace AgenteTcc
             {
                 sb.AppendLine(string.Format("E # {0}#{1}", dataHoraEncerramento.ToShortDateString(), dataHoraEncerramento.ToShortTimeString()));
                 //Questionario
-                sb.AppendLine(string.Format("#{0}#{1}#{2}#{3}#{4}#{5}#{6}#{7}", respostaPergunta1,
+                sb.Append(string.Format("#{0}#{1}#{2}#{3}#{4}#{5}#{6}#{7}", respostaPergunta1,
                                                                respostaPergunta2,
                                                                respostaPergunta3,
                                                                respostaPergunta4,

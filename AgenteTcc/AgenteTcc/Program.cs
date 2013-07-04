@@ -22,31 +22,31 @@ namespace AgenteTcc
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            new Questionario().ShowDialog();
+            //new Questionario().ShowDialog();
 
-            //SystemEvents.SessionEnding += SessionEndingEvtHandler;
-
-
-            //Transferencia.IniciarTransferencia();
-
-            //RegistryMemore.QuantidadeSessoesAtual += 1;
-
-            //if (Internet.IsConnected())
-            //{
-            //    try
-            //    {
-            //        Horario.UpdateWindowsClockFromInternet();
-            //    }
-            //    catch
-            //    {
-            //        new AjusteHorario().ShowDialog();
-            //    }
-            //}
-            //else
-            //    new AjusteHorario().ShowDialog();
+            SystemEvents.SessionEnding += SessionEndingEvtHandler;
 
 
-            //new Monitorador();
+            Transferencia.IniciarTransferencia();
+
+            RegistryMemore.QuantidadeSessoesAtual += 1;
+
+            if (Internet.IsConnected())
+            {
+                try
+                {
+                    Horario.UpdateWindowsClockFromInternet();
+                }
+                catch
+                {
+                    new AjusteHorario().ShowDialog();
+                }
+            }
+            else
+                new AjusteHorario().ShowDialog();
+
+
+            new Monitorador();
             Application.Run();
         }
 

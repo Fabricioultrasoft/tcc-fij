@@ -38,7 +38,7 @@ namespace Instalador
                 Installer.Ssl = checkSsl.Checked;
                 Installer.UsuarioEmail = txtUsuarioEmail.Text;
 
-                foreach (var item in listBox1.SelectedItems)
+                foreach (var item in listBox1.Items)
                 {
                     Installer.ListaSoftwares = string.Format("{0}{1};",Installer.ListaSoftwares,item.ToString().Split('/').Last());
                 }
@@ -69,7 +69,7 @@ namespace Instalador
 
         private void ValidarCampos()
         {
-            if (listBox1.SelectedItems.Count == 0)
+            if (listBox1.Items.Count == 0)
                throw new Exception("É necessário selecionar no mínimo um software na lista");
             
         }
@@ -88,6 +88,11 @@ namespace Instalador
         {
             if (e.KeyCode == Keys.Delete)
                 listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+        }
+
+        private void Instalacao_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
