@@ -43,14 +43,14 @@ namespace Agente
                 SmtpClient sc = new SmtpClient();
                 sc.Host = RegistryMemore.ServidorEmail;
                 sc.DeliveryMethod = SmtpDeliveryMethod.Network;
-                sc.UseDefaultCredentials = RegistryMemore.Ssl;
+               // sc.UseDefaultCredentials = RegistryMemore.Ssl;
                 sc.EnableSsl = RegistryMemore.Ssl;
                 sc.Port = RegistryMemore.Smtp;
                 sc.Credentials = new System.Net.NetworkCredential(
                        RegistryMemore.UsuarioEmail,
                        RegistryMemore.SenhaEmail
                 );
-
+                sc.Timeout = 15000;
                 sc.Send(m);
                 a.Dispose();
             }

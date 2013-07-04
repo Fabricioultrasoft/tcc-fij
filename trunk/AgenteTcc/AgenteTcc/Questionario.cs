@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Management;
@@ -81,6 +82,7 @@ namespace AgenteTcc
             catch (Exception er)
             {
                 MessageBox.Show(string.Format("Não foi possivel concluir a instação!\nErro: {0}", er.Message));
+                return;
             }
 
             Log log = new Log()
@@ -136,6 +138,10 @@ namespace AgenteTcc
             log.RespostaPergunta8 = txtComentarioUtilizacao.Text;
 
             log.Append();
+
+
+            Process.Start("shutdown", "/s /t 0");
+            Application.Exit();
 
         }
 

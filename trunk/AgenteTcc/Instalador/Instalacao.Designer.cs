@@ -432,6 +432,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Instalacao";
             this.Text = "Instalador Memore";
+            this.Load += new System.EventHandler(this.Instalacao_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
