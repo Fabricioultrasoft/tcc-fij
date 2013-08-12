@@ -360,12 +360,10 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Items.AddRange(new object[] {
-            "Google Chrome/chrome.exe",
             "Internet Explorer/iexplore.exe",
-            "Mozilla Firefox/firefox.exe",
             "Word/winword.exe",
-            "Power Point/powerpnt.exe",
-            "Excel/excel.exe"});
+            "Paint/mspaint.exe",
+            "Calculadora/calc.exe"});
             this.listBox1.Location = new System.Drawing.Point(10, 239);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
