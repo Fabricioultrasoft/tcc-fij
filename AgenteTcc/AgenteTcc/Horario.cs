@@ -58,7 +58,7 @@ namespace AgenteTcc
         {
 
             Agente.TimeService.TimeServiceSoapClient timeService = new Agente.TimeService.TimeServiceSoapClient("TimeServiceSoap");
-            return Convert.ToDateTime(timeService.getUTCTime()).Subtract(new TimeSpan(3, 0, 0));
+            return Convert.ToDateTime(timeService.getTimeZoneTime("PAPA"));
 
         }
 
