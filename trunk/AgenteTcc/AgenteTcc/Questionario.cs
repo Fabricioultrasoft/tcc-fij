@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,9 +23,22 @@ namespace AgenteTcc
         public Questionario()
         {
             InitializeComponent();
+            BloquearCtrlAltDel();
         }
 
+        private void BloquearCtrlAltDel()
+        {
 
+            RegistryKey rkS = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\System");
+            rkS.SetValue("DisableTaskMgr", 1, RegistryValueKind.DWord);
+            rkS.Close();
+        }
+        private void LiberarCtrlAltDel()
+        {
+            RegistryKey rkS = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\System");
+            rkS.SetValue("DisableTaskMgr", 0, RegistryValueKind.DWord);
+            rkS.Close();
+        }
 
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
@@ -59,9 +73,11 @@ namespace AgenteTcc
             tabControl1.SelectedIndex = tabControl1.SelectedIndex - 1;
         }
 
+        
+
         private void Questionario_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.UserClosing || e.CloseReason == CloseReason.WindowsShutDown || e.CloseReason == CloseReason.TaskManagerClosing)
+        {    
+            if (e.CloseReason == CloseReason.UserClosing || e.CloseReason == CloseReason.WindowsShutDown || e.CloseReason == CloseReason.TaskManagerClosing ||e.CloseReason == CloseReason.ApplicationExitCall)
                 e.Cancel = true;
         }
 
@@ -139,6 +155,7 @@ namespace AgenteTcc
 
             log.Append();
 
+            LiberarCtrlAltDel();
 
             Process.Start("shutdown", "/s /t 0");
             Application.Exit();
