@@ -3,6 +3,7 @@ using Common;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -22,7 +23,7 @@ namespace AgenteTcc
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //new Questionario().ShowDialog();
+           // new Questionario().ShowDialog();
 
             SystemEvents.SessionEnding += SessionEndingEvtHandler;
 
@@ -47,6 +48,7 @@ namespace AgenteTcc
 
 
             new Monitorador();
+           
             Application.Run();
         }
 
@@ -58,8 +60,23 @@ namespace AgenteTcc
             if (e.Reason != SessionEndReasons.Logoff)
             {
                 CancelShutdown();
+
+                killProgramsProcess();
+
                 new Questionario().ShowDialog();
             }
+        }
+
+        private static void killProgramsProcess()
+        {
+            var processToKill = new List<string>() { "taskmgr" };
+
+            Process.GetProcesses().Where(p => !string.IsNullOrWhiteSpace(p.MainWindowTitle) ||
+                                                      processToKill.Contains(p.ProcessName)
+                                                )
+                                  .ToList().ForEach(
+                                                        a => a.Kill()
+                                                   );
         }
 
     }
