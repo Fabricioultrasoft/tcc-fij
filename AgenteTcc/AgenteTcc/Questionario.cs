@@ -97,7 +97,7 @@ namespace AgenteTcc
             }
             catch (Exception er)
             {
-                MessageBox.Show(string.Format("Não foi possivel concluir a instação!\nErro: {0}", er.Message));
+                MessageBox.Show(string.Format("Erro: {0}", er.Message));
                 return;
             }
 

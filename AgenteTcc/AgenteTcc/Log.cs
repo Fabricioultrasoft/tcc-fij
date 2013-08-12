@@ -161,8 +161,6 @@ namespace AgenteTcc
             string caminho = RegistryMemore.DestinoLog;
             if (!File.Exists(caminho))
             {
-                File.Create(caminho);
-                File.OpenWrite(caminho);
                 isNewFile = true;
             }
 
@@ -180,7 +178,7 @@ namespace AgenteTcc
         public void Append()
         {
             CriarPastaDestino();
-            //CriarArquivoDestino();
+            CriarArquivoDestino();
 
             try
             {
@@ -209,7 +207,7 @@ namespace AgenteTcc
             }
             if (IsInitialize)
             {
-                sb.AppendLine(string.Format("I # {0}#{1}", dataHoraInicializacao.ToShortDateString(), dataHoraInicializacao.ToShortTimeString()));
+                sb.AppendLine(string.Format("I # {0}#{1}", dataHoraInicializacao.ToShortDateString(), dataHoraInicializacao.ToLongTimeString()));
                 IsInitialize = false;
             }
             if (isSoftwareInitialize)
@@ -228,9 +226,9 @@ namespace AgenteTcc
             }
             if (isShutdown)
             {
-                sb.AppendLine(string.Format("E # {0}#{1}", dataHoraEncerramento.ToShortDateString(), dataHoraEncerramento.ToShortTimeString()));
+                
                 //Questionario
-                sb.Append(string.Format("#{0}#{1}#{2}#{3}#{4}#{5}#{6}#{7}", respostaPergunta1,
+                string respostas = string.Format("#{0}#{1}#{2}#{3}#{4}#{5}#{6}#{7}", respostaPergunta1,
                                                                respostaPergunta2,
                                                                respostaPergunta3,
                                                                respostaPergunta4,
@@ -238,7 +236,8 @@ namespace AgenteTcc
                                                                respostaPergunta6,
                                                                respostaPergunta7,
                                                                respostaPergunta8
-                                                               ));
+                                                               );
+                sb.AppendLine(string.Format("E # {0}#{1} {2}", dataHoraEncerramento.ToShortDateString(), dataHoraEncerramento.ToLongTimeString(),respostas));
             }
 
             return sb.ToString();
